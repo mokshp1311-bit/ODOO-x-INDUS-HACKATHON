@@ -1,14 +1,33 @@
 import os
-from flask import Flask, render_template, session, request, url_for, redirect, g
+from pprint import pprint
+
+from flask import Flask, render_template, session, request, url_for, redirect
+from sqlalchemy import func
+from sqlmodel import select
+
+from models.db import create_db, Users, Stock, Transaction, TransactionType
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(24)
+db = create_db()
 
 dummy_login = {"loginid": "xyz123",
                "password": "12345"}
 
 @app.route("/")
 def home():
+    # getting transaction data
+    statement = (
+        select(Transaction.type, func.count(Transaction.id).label("count"))
+        .group_by(Transaction.type)
+    )
+    results = db.exec(statement)
+    for x in results:
+        if x[0] == TransactionType.Receipt:
+            receipts = x[1]
+        else:
+            deliveries = x[1]
+    # print(receipts, deliveries)
     return render_template("index.html")
 
 @app.route("/login", methods=["GET", "POST"])
