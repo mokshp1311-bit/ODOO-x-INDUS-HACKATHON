@@ -1,0 +1,93 @@
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Background */
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#141e30,#243b55);
+}
+
+/* Glassmorphism container */
+.form-box{
+    width:360px;
+    padding:40px;
+    border-radius:15px;
+
+    background:rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    border:1px solid rgba(255,255,255,0.2);
+
+    box-shadow:0 8px 32px rgba(0,0,0,0.3);
+}
+
+/* Form group */
+.form-group{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:20px;
+}
+
+/* Labels */
+.form-group label{
+    color:white;
+    margin-bottom:6px;
+    font-size:14px;
+}
+
+/* Inputs */
+.form-group input{
+    padding:12px;
+    border-radius:6px;
+    border:none;
+    outline:none;
+    font-size:14px;
+
+    background:rgba(255,255,255,0.15);
+    color:white;
+}
+
+/* Placeholder */
+.form-group input::placeholder{
+    color:#ddd;
+}
+
+/* Button */
+.btn{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+
+    border:none;
+    border-radius:6px;
+    background:#00c6ff;
+    background:linear-gradient(90deg,#00c6ff,#0072ff);
+
+    color:white;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+/* Links */
+form a{
+    color:#ccc;
+    font-size:13px;
+    text-decoration:none;
+}
+
+form a:hover{
+    color:white;
+}
